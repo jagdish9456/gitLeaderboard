@@ -31,6 +31,11 @@ const routes: Array<RouteConfig> = [
     component: () => import( "../views/CommitHistory.vue")
   },
   {
+    path: "/Account",
+    name: "Account",
+    component: () => import( "../views/Profile.vue")
+  },
+  {
     path: "/about",
     name: "About",
     // route level code-splitting
