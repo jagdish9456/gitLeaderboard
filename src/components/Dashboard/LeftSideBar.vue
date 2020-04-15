@@ -69,6 +69,7 @@
 import { Component, Prop, Vue } from "vue-property-decorator";
 import { GetTopScorers, GetCommitDetailsFromGit } from "../../store/api";
 import { IGetTopScorers, IGetGitCommitDetails } from "../../store/model";
+import UserModule from "../../store/modules/user";
 
 @Component({
   name: "LeftBar"
@@ -78,12 +79,21 @@ export default class LeftBar extends Vue {
   GitTopScorers: IGetGitCommitDetails[] | null = null;
 
   async created(){
+    debugger;
       // await GetTopScorers().then(res => {
       //     this.TopScorers = res;
       // });
 
       await GetCommitDetailsFromGit().then(res => {
           this.GitTopScorers = res;
+          
+          let totalnumber = 0;
+          for(const i in this.GitTopScorers){
+            totalnumber = totalnumber + this.GitTopScorers[i].count;
+          }
+          const userPercentage = this.GitTopScorers.filter((data: any) => data.name == 'jagdish9456')[0].count;
+          const percentage = (userPercentage / totalnumber) * 100;
+          this.$store.commit('setCommitPercentage',percentage);
       });
   }
 
