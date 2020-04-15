@@ -2,25 +2,25 @@
   <header class="block">
     <ul class="header-menu horizontal-list">
       <li @click="RouterPush('Dashboard')">
-        <a class="header-menu-tab" href="#1">
+        <span class="header-menu-tab">
           <span class="icon entypo-cog scnd-font-color"></span>Dashboard
-        </a>
+        </span>
       </li>
-      <li>
-        <a class="header-menu-tab" href="#2">
+      <li @click="RouterPush('Account')" >
+        <span class="header-menu-tab">
           <span class="icon fontawesome-user scnd-font-color"></span>Account
-        </a>
+        </span>
       </li>
       <li @click="RouterPush('CommitHistory')">
-        <a class="header-menu-tab" href="#3">
+        <span class="header-menu-tab">
           <span class="icon fontawesome-envelope scnd-font-color"></span>Commit History
-        </a>
+        </span>
         <a class="header-menu-number" href="#4">5</a>
       </li>
       <li>
-        <a class="header-menu-tab" href="#5">
+        <span class="header-menu-tab">
           <span class="icon fontawesome-star-empty scnd-font-color"></span>PR History
-        </a>
+        </span>
       </li>
     </ul>
     <div class="profile-menu">
