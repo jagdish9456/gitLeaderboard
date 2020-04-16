@@ -23,10 +23,12 @@
             v-model="password"
             class="form-control"
             id="password"
-            placeholder="Enter PAssword"
+            placeholder="Enter Password"
           />
           <br />
-          <button class="btn btn-danger btn-lg" @click="LoginUser()">Login</button>
+          <button class="btn btn-danger btn-lg" @click="LoginUser()">
+            Login
+          </button>
         </b-col>
       </b-row>
     </b-container>
@@ -50,12 +52,11 @@ export default class Login extends Vue {
   async LoginUser() {
     await LoginUser(this.UserDetails).then(res => {
       if (res.status == "success") {
-        this.$store.commit('setUsername',this.username);
-        this.$store.commit('setname',res.name);
+        this.$store.commit("setUsername", this.username);
+        this.$store.commit("setname", res.name);
         this.$router.push("/Dashboard");
-      }
-      else{
-          alert("Wrong Username or Password");
+      } else {
+        alert("Wrong Username or Password");
       }
     });
   }
